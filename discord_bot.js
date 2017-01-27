@@ -188,7 +188,7 @@ if(AuthDetails.hasOwnProperty("client_id")){
 	commands["invite"] = {
 		description: "generates an invite link you can use to invite the bot to your server",
 		process: function(bot,msg,suffix){
-			msg.channel.sendMessage("invite link: https://discordapp.com/oauth2/authorize?&client_id=" + AuthDetails.client_id + "&scope=bot&permissions=470019135");
+			msg.channel.sendMessage("Invite link: https://discordapp.com/oauth2/authorize?&client_id=" + AuthDetails.client_id + "&scope=bot&permissions=2146958463");
 		}
 	}
 }
@@ -210,7 +210,7 @@ bot.on("ready", function () {
 	console.log("Logged in! Serving in " + bot.guilds.array().length + " servers");
 	require("./plugins.js").init();
 	console.log("type "+Config.commandPrefix+"help in Discord for a commands list.");
-	bot.user.setGame("THEBot! | " + bot.guilds.array().length +" Servers"); 
+	bot.user.setGame("BOT v"+ Config.version + " | " + Config.commndPrefix + "help | " + bot.guilds.array().length +" Servers"); 
 });
 
 bot.on("disconnected", function () {
