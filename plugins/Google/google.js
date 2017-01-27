@@ -1,5 +1,7 @@
 var request = require("request");
 var AuthDetails = require("../../auth.json");
+var Config = require("../../config.json");
+
 try {
 	var yt = require("./youtube_plugin");
 	var youtube_plugin = new yt();
@@ -18,6 +20,7 @@ exports.image = {
 	usage: "<search query>",
 	description: "gets the top matching image from google",
 	process: function(bot, msg, args) {
+		if(args.length<1) {msg.channel.sendMessage("I cant search nothing! Add arguments please. Ex: " + Config.commandPrefix + "image dog"); return;}
 		if(!AuthDetails || !AuthDetails.youtube_api_key || !AuthDetails.google_custom_search){
 			msg.channel.sendMessage("Image search requires both a YouTube API key and a Google Custom Search key!");
 			return;
@@ -52,6 +55,7 @@ exports.rimage = {
 	usage: "<search query>",
 	description: "gets a random image matching tags from google",
 	process: function(bot, msg, args) {
+		if(args.length<1) {msg.channel.sendMessage("I cant search nothing! Add arguments please. Ex: " + Config.commandPrefix + "image cat"); return;}
 		if(!AuthDetails || !AuthDetails.youtube_api_key || !AuthDetails.google_custom_search){
 			msg.channel.sendMessage( "Image search requires both a YouTube API key and a Google Custom Search key!");
 			return;
