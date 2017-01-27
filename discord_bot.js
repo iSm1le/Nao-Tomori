@@ -1,5 +1,5 @@
 var fs = require('fs');
-var pge = require('package.json');
+var pge = require('./package.json');
 
 try {
 	var Discord = require("discord.js");
