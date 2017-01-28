@@ -356,6 +356,13 @@ bot.on("message", (msg) => checkMessageForCommand(msg, false));
 bot.on("messageUpdate", (oldMessage, newMessage) => {
 	checkMessageForCommand(newMessage,true);
 });
+bot.on("guildMemberAdd", member => {
+	var guild = member.guild;
+	guild.defaultChannel.sendMessage(`New user joined. Welcome, ${member.user}, to this server.`);
+});
+bot.on("guildCreate", guild => {
+	console.log('New guild added : ${guild.name}, owned by ${guild.owner.user.username}');
+});
 
 //Log user status changes
 bot.on("presence", function(user,status,gameId) {
