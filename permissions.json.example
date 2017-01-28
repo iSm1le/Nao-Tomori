@@ -2,7 +2,8 @@
 	"global":{
 		"eval": false,
 		"pullanddeploy": false,
-		"permittedRoleName": "name"
+		"addOtherPermissionRole": "name+", //Gives a role without "+". Can be used when you using "Role access" server
+    	"permittedRoleName": "role_name" //Admin/Mod role, that have access to "dangerous" commands
 	},
 	"users":{
 		"userid":{
