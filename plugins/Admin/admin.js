@@ -1,3 +1,5 @@
+var Permissions = require("../../permissions.json");
+
 exports.commands = [
 	"setUsername",
 	"log",
@@ -9,14 +11,26 @@ var startTime = Date.now();
 exports.setUsername = {
 	description: "sets the username of the bot. Note this can only be done twice an hour!",
 	process: function(bot,msg,suffix) {
-		bot.user.setUsername(suffix);
+		var role = msg.guild.roles.find("name", Permissions.global.permittedRoleName);
+		if(msg.member.roles.has(role.id)) {
+			bot.user.setUsername(suffix);
+		} else {
+			msg.channel.sendMessage("You dont have permission to do this.");
+		}
 	}
 }
 
 exports.log = {
 	usage: "<log message>",
 	description: "logs message to bot console",
-	process: function(bot,msg,suffix){console.log(msg.content);}
+	process: function(bot,msg,suffix){
+		var role = msg.guild.roles.find("name", Permissions.global.permittedRoleName);
+		if(msg.member.roles.has(role.id)) {
+			console.log(msg.content);
+		} else {
+			msg.channel.sendMessage("You dont have permission to do this.");
+		}
+	}
 }
 
 exports.uptime = {

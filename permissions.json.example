@@ -1,7 +1,8 @@
 {
 	"global":{
 		"eval": false,
-		"pullanddeploy": false
+		"pullanddeploy": false,
+		"permittedRoleName": "name"
 	},
 	"users":{
 		"userid":{
