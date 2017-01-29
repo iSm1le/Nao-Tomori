@@ -5,7 +5,7 @@ exports.commands = [
 	"voice",
 	"delete",
 	"servers",
-	"topic"
+	//"topic"
 ]
 
 exports.create = {

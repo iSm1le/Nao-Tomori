@@ -1,10 +1,10 @@
 var Permissions = require("../../permissions.json");
 
 exports.commands = [
-	"setUsername",
+	//"setUsername",
 	"giveAccess",
 	"denyAccess",
-	"log",
+	//"log",
 	"uptime"
 ]
 

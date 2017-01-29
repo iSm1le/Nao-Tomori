@@ -130,7 +130,7 @@ var commands = {
             }
         }
     },
-    "idle": {
+    /*"idle": {
 		usage: "[status]",
         description: "sets bot status to idle",
         process: function(bot,msg,suffix){
@@ -142,8 +142,8 @@ var commands = {
 				msg.channel.sendMessage("You dont have permission to do this.");
 			}
 		}
-    },
-    "online": {
+    },*/
+    /*"online": {
 		usage: "[status]",
         description: "sets bot status to online",
         process: function(bot,msg,suffix){
@@ -155,13 +155,13 @@ var commands = {
 				msg.channel.sendMessage("You dont have permission to do this.");
 			}
 		}
-    },
+    },*/
     "say": {
         usage: "<message>",
         description: "bot says message",
         process: function(bot,msg,suffix){ msg.channel.sendMessage(suffix);}
     },
-	"announce": {
+	/*"announce": {
         usage: "<message>",
         description: "bot says message with text to speech",
         process: function(bot,msg,suffix){
@@ -172,8 +172,8 @@ var commands = {
 				msg.channel.sendMessage("You dont have permission to do this.");
 			}
 		}
-    },
-	"msg": {
+    },*/
+	/*"msg": {
 		usage: "<user> <message to leave user>",
 		description: "leaves a message for a user the next time they come online",
 		process: function(bot,msg,suffix) {
@@ -194,7 +194,7 @@ var commands = {
 			updateMessagebox();
 			msg.channel.sendMessage("message saved.")
 		}
-	},
+	},*/
 	"eval": {
 		usage: "<command>",
 		description: 'Executes arbitrary javascript in the bot process. User must have "eval" permission',
