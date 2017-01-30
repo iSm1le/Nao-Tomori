@@ -5,6 +5,7 @@ exports.commands = [
 	"giveAccess",
 	"denyAccess",
 	//"log",
+	"die",
 	"uptime"
 ]
 
@@ -29,6 +30,7 @@ exports.giveAccess = {
 		try {
 			var arole = msg.guild.roles.find("name", Permissions.global.addOtherPermissionRole.slice(0, -1));
 			var role = msg.guild.roles.find("name", Permissions.global.addOtherPermissionRole);
+			if(!role) { return msg.channel.sendMessage(`You dont have ${Permissions.global.permittedRoleName} group on server`); }
 			if(msg.member.roles.has(role.id)) {
 				if(!msg.guild.member(bot.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")){
 					return msg.channel.sendMessage("I dont have permission (MANAGE_ROLES_OR_PERMISSIONS) to do this.");
@@ -64,6 +66,7 @@ exports.denyAccess = {
 		try {
 			var drole = msg.guild.roles.find("name", Permissions.global.addOtherPermissionRole.slice(0, -1));
 			var role = msg.guild.roles.find("name", Permissions.global.addOtherPermissionRole);
+			if(!role) { return msg.channel.sendMessage(`You dont have ${Permissions.global.permittedRoleName} group on server`); }
 			if(msg.member.roles.has(role.id)) {
 				if(!msg.guild.member(bot.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")){
 					return msg.channel.sendMessage("I dont have permission (MANAGE_ROLES_OR_PERMISSIONS) to do this.");
@@ -103,6 +106,20 @@ exports.log = {
 		var role = msg.guild.roles.find("name", Permissions.global.permittedRoleName);
 		if(msg.member.roles.has(role.id)) {
 			console.log(msg.content);
+		} else {
+			msg.channel.sendMessage("You dont have permission to do this.");
+		}
+	}
+}
+
+exports.die = {
+	discription: "sends command, that closing a bot instance.",
+	process: function(bot,msg,suffix) {
+		var role = msg.guild.roles.find("name", Permissions.global.permittedRoleName);
+		if(!role) { return msg.channel.sendMessage(`You dont have ${Permissions.global.permittedRoleName} group on server`); }
+		if(msg.member.roles.has(role.id)) {
+			msg.channel.sendMessage(`Bot has been closed by ${msg.author}`);
+			process.exit(0);
 		} else {
 			msg.channel.sendMessage("You dont have permission to do this.");
 		}
