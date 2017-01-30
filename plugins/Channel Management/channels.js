@@ -13,6 +13,7 @@ exports.create = {
 	description: "creates a new text channel with the given name.",
 	process: function(bot,msg,suffix) {
 		var role = msg.guild.roles.find("name", Permissions.global.permittedRoleName);
+		if(!role) { return msg.channel.sendMessage(`You dont have ${Permissions.global.permittedRoleName} group on server`); }
 		if(msg.member.roles.has(role.id)) {
 			msg.channel.guild.createChannel(suffix,"text").then(function(channel) {
 				msg.channel.sendMessage("created " + channel);
@@ -29,6 +30,7 @@ exports.servers = {
 	description: "Tells you what servers the bot is in",
 	process: function(bot,msg) {
 		var role = msg.guild.roles.find("name", Permissions.global.permittedRoleName);
+		if(!role) { return msg.channel.sendMessage(`You dont have ${Permissions.global.permittedRoleName} group on server`); }
 		if(msg.member.roles.has(role.id)) {
 			msg.channel.sendMessage(`__**${bot.user.username} is currently on the following servers:**__ \n\n${bot.guilds.map(g => `${g.name} - **${g.memberCount} Members**`).join(`\n`)}`, {split: true});
 		} else {
@@ -42,6 +44,7 @@ exports.voice = {
 	description: "creates a new voice channel with the give name.",
 	process: function(bot,msg,suffix) {
 		var role = msg.guild.roles.find("name", Permissions.global.permittedRoleName);
+		if(!role) { return msg.channel.sendMessage(`You dont have ${Permissions.global.permittedRoleName} group on server`); }
 		if(msg.member.roles.has(role.id)) {		
 			msg.channel.guild.createChannel(suffix,"voice").then(function(channel) {
 				msg.channel.sendMessage("created " + channel.id);
@@ -60,6 +63,7 @@ exports.delete = {
 	description: "deletes the specified channel",
 	process: function(bot,msg,suffix) {
 		var role = msg.guild.roles.find("name", Permissions.global.permittedRoleName);
+		if(!role) { return msg.channel.sendMessage(`You dont have ${Permissions.global.permittedRoleName} group on server`); }
 		if(msg.member.roles.has(role.id)) {		
 			var channel = bot.channels.get(suffix);
 			if(suffix.startsWith('<#')){
@@ -101,6 +105,7 @@ exports.topic = {
 	description: 'Sets the topic for the channel. No topic removes the topic.',
 	process: function(bot,msg,suffix) {
 		var role = msg.guild.roles.find("name", Permissions.global.permittedRoleName);
+		if(!role) { return msg.channel.sendMessage(`You dont have ${Permissions.global.permittedRoleName} group on server`); }
 		if(msg.member.roles.has(role.id)) {	
 			msg.channel.setTopic(suffix);
 		} else {
