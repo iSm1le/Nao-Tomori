@@ -114,7 +114,7 @@ exports.log = {
 
 exports.die = {
 	usage: "",
-	discription: "sends command, that closing a bot instance.",
+	description: "Sends command, that closing a bot instance.",
 	process: function(bot,msg,suffix) {
 		var role = msg.guild.roles.find("name", Permissions.global.permittedRoleName);
 		if(!role) { return msg.channel.sendMessage(`You dont have ${Permissions.global.permittedRoleName} group on server`); }
