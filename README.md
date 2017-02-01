@@ -1,5 +1,6 @@
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
-[![GitHub forks](https://img.shields.io/github/forks/badges/shields.svg?style=social&label=Fork&style=flat-square)]()
-[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Star&style=flat-square)]()
+[![GitHub issues](https://img.shields.io/github/issues/iSm1le/Nao-Tomori.svg?style=flat-square)](https://github.com/iSm1le/Nao-Tomori/issues)
+[![GitHub forks](https://img.shields.io/github/forks/iSm1le/Nao-Tomori.svg?style=flat-square)](https://github.com/iSm1le/Nao-Tomori/network)
+[![GitHub stars](https://img.shields.io/github/stars/iSm1le/Nao-Tomori.svg?style=flat-square)](https://github.com/iSm1le/Nao-Tomori/stargazers)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/iSm1le/Nao-Tomori/master/LICENSE)
 [![Stories in Ready](https://badge.waffle.io/iSm1le/Nao-Tomori.png?label=ready&title=Ready&style=flat-square)](https://waffle.io/iSm1le/Nao-Tomori)
 # Nao-Tomori
